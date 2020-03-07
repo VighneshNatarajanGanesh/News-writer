@@ -2,16 +2,17 @@
 
 ## Ngram models
 
-N-gram models are simple probabilistic language models that generate words by selecting a new word from the last N-1 words of the sentence using the calculated conditional probability p(w(n) | w1 w2 .... w(n-1)) = p(w1 w2 ... w(n))/p(w1 w2 .... w(n-1)).
-in layman terms, using the probability of a word being the nth word, given the previous n-1 words.
+N-gram models are simple probabilistic language models that generate words by selecting a new word from the last N-1 words of the sentence using the calculated conditional probability:
+    p(w(n) | w1 w2 .... w(n-1)) = p(w1 w2 ... w(n))/p(w1 w2 .... w(n-1)).
+In layman terms, using the probability of a word being the nth word, given the previous n-1 words.
 
-This means that the model chooses what word to generate based on the memory of last N-1 words and its knowledge of what all words can exist given these N-1 words and what is the probability of them existing.
+This means that the model chooses what word to generate based on the memory of the last N-1 words and its knowledge of all the words that can exist given these N-1 words exist before it in order and what is the probability of them existing in that order.
 
-This knowledge of the n-gram model is achieved by going through [Reuters](https://www.cs.bgu.ac.il/~elhadad/nlp19/ReutersDataset.html) dataset. The Reuters dataset is a Corpus contains 10,788 news documents totaling 1.3 million words.
+This knowledge of the n-gram model is achieved by modeling from the [Reuters](https://www.cs.bgu.ac.il/~elhadad/nlp19/ReutersDataset.html) dataset. The Reuters dataset is a Corpus contains 10,788 news documents totaling 1.3 million words.
 
 ## The tri-gram model
 
-The trigram model as the name suggests generates a third word based on the memory of the last two words it knows. The trigram model suffers from the extreme case of the disagvantage that all ngrams suffer, It doesnot have suffitient memory of the past words. All its decisions are made based on only the last two words but when it comes to human language this behaviour is far from the truth.
+The trigram model as the name suggests generates a third word based on the memory of the last two words. The trigram model suffers from the extreme case of the disagvantage that all ngrams suffer, It doesnot have suffitient memory of the past words. All its decisions are made based on only the last two words but when it comes to human language this behaviour is far from the truth.
 
 #### feed: "its name"
 
@@ -27,7 +28,7 @@ the name of company is not a very serious about negotiating until the end of the
 
 ### conclution:
 
-We can clearly notice that the trigram modelsuffers to make any sence due to the limited memory of the past. The tri-gram also suffers from repetition because the two "words" : "." and "the" point to the next word being "company" then, "the" and "company" point to the next word being "said", "company" and "said" ponit to "." but again, finishing the loop, "company" and "." point to "the".
+We can clearly notice that the trigram model suffers to make any sence due to the limited memory of the past. The tri-gram also suffers from repetition because the two "words" : *"."* and *"the"* point to the next word being *"company"* then, *"the"* and *"company"* point to the next word being *"said"*, *"company"* and *"said"* ponit to *"."* but again, finishing the loop, *"said"* and *"."* point to *"the"*.
 
 This bug can be easily removed by selecting a word randomly out of the pool of most probable 5 or 10 words instead of going to THE most probable. Or even selecting a word from a pool of words that all have probabilities more than x (x can be determined by trial and error) and if there is no word that satisfies this condition we can take this point as a good end point for the news.
 
@@ -54,4 +55,4 @@ output:
 ### conclution:
 
 As denoted by the third case the penta-gram model still suffers from the repetition problem but less so compared to the trigram model.
-The pentagram model, even though makes sence relative to the trigram model, falls apart in the contex department because its memory capasity of 4 words is way too low for natural language. When humans speak, what we are going to utter now depends on sentences that were uttered long before the present and this is why simple ngram models cannot cope up with the complexity of human language. To combat this problem we will have to use more complex models like **RNNs and LSTMs with attention** that can remember the past and certain highlights of it (like certain words of the past help us determine the future more that other words like and , or, etc that have very low semantic value) and a representation of the distant and recent past can be used to determint the future. 
+The pentagram model, even though makes sence relative to the trigram model, falls apart in the contex department because its memory capasity of 4 words is still way too low for natural language. When humans speak, what we are going to utter now depends on sentences that were uttered long before the present and this is why simple ngram models cannot cope up with the complexity of human language. To combat this problem we will have to use more complex models like **RNNs and LSTMs with attention** that can remember the past and certain highlights of it (like certain words of the past help us determine the future more so than other words like *and* , *or*, etc that have very low semantic value) and a representation of the distant and recent past can be used to determine the future. 
