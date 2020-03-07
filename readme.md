@@ -3,7 +3,9 @@
 ## Ngram models
 
 N-gram models are simple probabilistic language models that generate words by selecting a new word from the last N-1 words of the sentence using the calculated conditional probability:
+
 p(w(n) | w1 w2 .... w(n-1)) = p(w1 w2 ... w(n))/p(w1 w2 .... w(n-1)).
+
 In layman terms, using the probability of a word being the nth word, given the previous n-1 words.
 
 This means that the model chooses what word to generate based on the memory of the last N-1 words and its knowledge of all the words that can exist given these N-1 words exist before it in order and what is the probability of them existing in that order.
