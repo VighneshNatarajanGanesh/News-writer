@@ -28,9 +28,9 @@ output:
 
 the name of company is not a very serious about negotiating until the end of the company said . the company said . the company said
 
-### conclution:
+### conclusion:
 
-We can clearly notice that the trigram model suffers to make any sence due to the limited memory of the past. The trigram also suffers from repetition because the two "words" : *"."* and *"the"* point to the next word being *"company"* then, *"the"* and *"company"* point to the next word being *"said"*, *"company"* and *"said"* ponit to *"."* but again, finishing the loop, *"said"* and *"."* point to *"the"*.
+We can clearly notice that the trigram model suffers to make any sence due to the limited memory of the past. The trigram also suffers from repetition because the two "words" : *"."* and *"the"* point to the next word being *"company"* then, *"the"* and *"company"* point to the next word being *"said"*, *"company"* and *"said"* point to *"."* but again, finishing the loop, *"said"* and *"."* point to *"the"*.
 
 This bug can be easily removed by selecting a word randomly out of the pool of most probable 5 or 10 words instead of going to THE most probable. Or even selecting a word from a pool of words that all have probabilities more than x (x can be determined by trial and error) and if there is no word that satisfies this condition we can take this point as a good end point for the news.
 
@@ -54,7 +54,7 @@ output:
 
 **the company said the offer** and withdrawal rights expire april 20 unless extended . the offer is conditioned on receipt of at least two years and stress retraining to help the long - term capital account surplus was 87 mln dlrs against 46 mln and 158 mln . the errors and omissions account left a surplus of 840 mln dlrs in february from 3 . 89 billion a year ago . **the company said the offer** and withdrawal rights expire april 20 unless extended . the offer is conditioned on receipt of at least two years and stress retraining to help the long - term capital account surplus was 87 mln dlrs against 46 mln and 158 mln . the errors and omissions account left a surplus of 840 mln dlrs in february from 3 . 89 billion a year ago . **the company said the offer** and withdrawal rights expire april 20 unless extended .
 
-### conclution:
+### conclusion:
 
 As denoted by the third case the pentagram model still suffers from the repetition problem but less so compared to the trigram model.
 The pentagram model, even though makes sence relative to the trigram model, falls apart in the contex department because its memory capasity of 4 words is still way too low for natural language. When humans speak, what we are going to utter now depends on sentences that were uttered long before the present and this is why simple ngram models cannot cope up with the complexity of human language. To combat this problem we will have to use more complex models like **RNNs and LSTMs with attention** that can remember the past and certain highlights of it (like certain words of the past help us determine the future more so than other words like *and* , *or*, etc that have very low semantic value) and a representation of the distant and recent past can be used to determine the future. 
