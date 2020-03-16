@@ -30,7 +30,7 @@ the name of company is not a very serious about negotiating until the end of the
 
 ### conclusion:
 
-We can clearly notice that the trigram model suffers to make any sence due to the limited memory of the past. The trigram also suffers from repetition because the two "words" : *"."* and *"the"* point to the next word being *"company"* then, *"the"* and *"company"* point to the next word being *"said"*, *"company"* and *"said"* point to *"."* but again, finishing the loop, *"said"* and *"."* point to *"the"*.
+We can clearly notice that the trigram model suffers to make any sence due to the limited memory of the past. The trigram also suffers from repetition because the two words : *"."* and *"the"* point to the next word being *"company"* then, *"the"* and *"company"* point to the next word being *"said"*, *"company"* and *"said"* point to *"."* but again, finishing the loop, *"said"* and *"."* point to *"the"*.
 
 This bug can be easily removed by selecting a word randomly out of the pool of most probable 5 or 10 words instead of going to THE most probable. Or even selecting a word from a pool of words that all have probabilities more than x (x can be determined by trial and error) and if there is no word that satisfies this condition we can take this point as a good end point for the news.
 
